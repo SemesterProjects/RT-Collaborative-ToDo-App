@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Premium CollabBoard</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
+</head>
+<body>
+
+  <!-- Full Name Entry Modal -->
+  <div id="join-modal" class="modal-overlay active">
+     <div class="modal">
+        <h2>Welcome to CollabBoard</h2>
+        <p>Enter your name to join the workspace and collaborate in real-time.</p>
+        <input type="text" id="username-input" placeholder="Your Name" autocomplete="off" autofocus>
+        <button id="join-btn" class="primary-btn">Enter Workspace</button>
+     </div>
+  </div>
+
+  <div id="app" class="hidden">
+    <aside class="sidebar">
+      <div class="brand">
+        <img src="logo.png" alt="Logo" class="logo-img">
+        <h1>CollabBoard</h1>
+      </div>
+      <div class="boards-wrapper">
+        <div class="section-title">YOUR BOARDS</div>
+        <ul id="boards-list" class="boards-list"></ul>
+        <button id="add-board-btn" class="secondary-btn border-dashed">+ Create Board</button>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+         <h2 id="current-board-title">Board Name <span class="badge" id="board-type">Public Space</span></h2>
+         
+         <div class="toolbar">
+            <div class="search-box">
+               <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                 <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+               </svg>
+               <input type="text" id="search-input" placeholder="Search tasks...">
+            </div>
+            
+            <select id="filter-priority" class="filter-select">
+              <option value="">All Priorities</option>
+              <option value="High">High Priority</option>
+              <option value="Medium">Medium Priority</option>
+              <option value="Low">Low Priority</option>
+            </select>
+
+            <div class="presence-stack" id="presence-stack" title="Online Users"></div>
+
+            <div class="action-buttons">
+              <button id="undo-btn" title="Undo Action" class="icon-btn">↺</button>
+              <button id="redo-btn" title="Redo Action" class="icon-btn">↻</button>
+              <button id="export-btn" title="Export as JSON" class="icon-btn">↓</button>
+              <button id="theme-btn" title="Toggle Dark/Light Mode" class="icon-btn">🌓</button>
+            </div>
+         </div>
+      </header>
+
+      <div class="board-canvas" id="board-canvas">
+        <!-- Lists populated here dynamically -->
+      </div>
+    </main>
+  </div>
+
+  <!-- Task Edit Modal -->
+  <div id="task-modal" class="modal-overlay hidden">
+    <div class="modal large">
+      <button id="close-task-modal" class="close-btn">×</button>
+      <input type="text" id="modal-task-title" class="title-input" placeholder="Task Title...">
+      
+      <div class="modal-body">
+         <div class="modal-col main-col">
+            <label>Description</label>
+            <textarea id="modal-task-desc" placeholder="Add a more detailed description..."></textarea>
+            
+            <label style="margin-top: 1rem;">Comments & Activity</label>
+            <div id="modal-comments-list" class="comments-list"></div>
+            <div class="comment-box">
+               <input type="text" id="modal-comment-input" placeholder="Write a comment...">
+               <button id="add-comment-btn" class="primary-btn small">Send</button>
+            </div>
+         </div>
+         <div class="modal-col side-col">
+            <label>Priority</label>
+            <select id="modal-task-priority" class="filter-select input-full">
+              <option value="Low">Low Priority</option>
+              <option value="Medium">Medium Priority</option>
+              <option value="High">High Priority</option>
+            </select>
+            
+            <label style="margin-top: 1rem;">Assign To</label>
+            <input type="text" id="modal-task-assignee" class="text-input input-full" placeholder="Assignee name...">
+            
+            <label style="margin-top: 1rem;">Due Date</label>
+            <input type="date" id="modal-task-dueDate" class="text-input input-full">
+            
+            <div class="danger-zone" style="margin-top: 2rem;">
+              <button id="modal-task-delete" class="danger-btn">Delete Task</button>
+            </div>
+         </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

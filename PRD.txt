@@ -1,0 +1,223 @@
+
+PROJECT REQUIREMENTS DOCUMENT (PRD)
+Project Title: Cloud-Deployed Real-Time Collaborative TODO Board
+Deployment Model: PaaS Cloud Deployment using Render
+
+--------------------------------------------------
+1. PROJECT OVERVIEW
+--------------------------------------------------
+
+The Real-Time Collaborative TODO Board is a web-based application that allows multiple users
+to create and manage tasks collaboratively in real time.
+
+Users can add, edit, delete, and organize tasks while all connected users see updates
+instantly through WebSocket communication.
+
+The primary objective of this project is to demonstrate cloud deployment of a real-time
+web application using a Platform-as-a-Service (PaaS) cloud platform.
+
+The application will be deployed on Render cloud infrastructure, making it accessible
+through a public URL over the internet.
+
+This project demonstrates:
+
+- Real-time web communication
+- Multi-user collaboration systems
+- Cloud application deployment
+- WebSocket-based synchronization
+- Modern web hosting workflows using GitHub + cloud platform
+
+--------------------------------------------------
+2. PROJECT OBJECTIVES
+--------------------------------------------------
+
+- Deploy a web application on a cloud platform.
+- Demonstrate real-time synchronization using WebSockets.
+- Build a collaborative multi-user task management system.
+- Understand the PaaS deployment model.
+- Implement a modern deployment pipeline using GitHub and Render.
+- Demonstrate public cloud access to an application.
+
+--------------------------------------------------
+3. FEATURES
+
+CORE FEATURES
+
+1. Create / Edit / Delete Tasks
+Users can create new tasks, modify tasks, and delete tasks from the board.
+Changes synchronize instantly across all connected users.
+
+2. Multiple Lists / Boards
+Tasks can be organized into different lists such as Work, Personal, or Urgent.
+
+3. Drag and Drop Tasks
+Tasks can be moved between lists using drag-and-drop functionality.
+
+4. Task Assignment
+Tasks can be assigned to specific users.
+
+5. Due Dates
+Tasks can include deadlines with visual indicators.
+
+6. Priority Levels
+Tasks can be tagged as High, Medium, or Low priority.
+
+7. Real-Time Updates
+All task changes are synchronized instantly using WebSockets (Socket.IO).
+
+--------------------------------------------------
+ADVANCED FEATURES (OPTIONAL / FUTURE SCOPE)
+
+8. Comments / Notes on Tasks
+9. User Presence Indicator (who is online)
+10. Sharing and Permissions (public/private boards)
+11. Undo / Redo functionality
+12. Search and Filter tasks
+13. Dark Mode interface
+14. Export tasks as CSV / JSON
+
+
+--------------------------------------------------
+4. TECHNOLOGY STACK
+
+Frontend
+HTML5
+CSS3
+JavaScript
+
+Optional
+React
+
+Backend
+Node.js
+Express.js
+Socket.IO
+
+Cloud Infrastructure
+Render (PaaS Cloud Platform)
+
+Deployment Pipeline
+GitHub repository
+Automatic deployment via Render
+
+Development Tools
+VS Code
+npm
+Git
+
+--------------------------------------------------
+5. SYSTEM ARCHITECTURE
+
+User Browser
+      |
+      | HTTP / WebSocket
+      |
+Frontend Application
+      |
+      | Socket.IO
+      |
+Node.js + Express Server
+      |
+Render Cloud Platform
+      |
+Public Internet URL
+
+Users interact with the application through a browser.
+The backend server broadcasts updates to all connected clients using WebSocket events.
+
+--------------------------------------------------
+6. IMPLEMENTATION STEPS
+
+Step 1 – Environment Setup
+
+Install Node.js and npm.
+
+Initialize project:
+
+npm init -y
+npm install express socket.io
+
+Step 2 – Backend Development
+
+Create Express server.
+Integrate Socket.IO.
+
+Implement events for:
+- addTask
+- deleteTask
+- updateTask
+
+Step 3 – Frontend Development
+
+Build a simple interface including:
+- Task input field
+- Task list display
+- Add/Delete buttons
+- Multiple lists UI
+
+Connect frontend to backend using Socket.IO client.
+
+Step 4 – Real-Time Logic
+
+User action → event sent to server
+Server processes event
+Server broadcasts update
+All clients update UI instantly
+
+Step 5 – Local Testing
+
+Run server locally:
+
+node server.js
+
+Open multiple browser tabs to confirm real-time synchronization.
+
+Step 6 – Cloud Deployment
+
+1. Create GitHub repository
+2. Push project code to GitHub
+3. Create Render account
+4. Connect GitHub repository to Render
+5. Configure deployment settings
+6. Deploy the application
+
+Render automatically builds and runs the application.
+
+--------------------------------------------------
+7. CLOUD ACCESS
+
+After deployment the application will be accessible through a public URL:
+
+https://project-name.onrender.com
+
+Users from anywhere can access the collaborative board.
+
+--------------------------------------------------
+8. PROJECT REQUIREMENTS
+
+Software Requirements
+Node.js
+npm
+Git
+Web Browser
+
+Cloud Requirements
+Render account
+GitHub account
+
+Hardware Requirements
+Laptop
+Internet connection
+
+--------------------------------------------------
+9. EXPECTED OUTCOME
+
+Users will be able to collaborate on a shared TODO board in real time.
+Multiple users will see task updates instantly.
+The application will be publicly accessible via a cloud-hosted URL.
+
+This demonstrates:
+
+- Real-time communication systems
+- Multi-user application architecture
+- Cloud deployment using PaaS
