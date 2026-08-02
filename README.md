@@ -269,17 +269,6 @@ Every connected client updates instantly
 
 ---
 
-# 📸 Screenshots
-
-> Add screenshots of:
-
-- Home Page
-- Task Creation
-- Multiple Browser Synchronization
-- Cloud Deployment
-
----
-
 # 🔮 Future Improvements
 
 Potential enhancements include:
